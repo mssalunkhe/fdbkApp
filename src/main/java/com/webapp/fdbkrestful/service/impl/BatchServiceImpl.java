@@ -23,21 +23,29 @@ public class BatchServiceImpl implements BatchIService {
 
     @Override
     public BatchDto getBatchByID(int id) {
-        batchRepository.ge
+        Batch fetchedBatch= batchRepository.findById(id).orElseThrow(()-> new RuntimeException("No record found"));
+        return BatchMapper.mapToBatchDto(fetchedBatch);
     }
 
     @Override
     public List<BatchDto> getAllBatches() {
-        return null;
+
+        return   batchRepository.findAll().stream().map(BatchMapper::mapToBatchDto).toList();
     }
 
     @Override
     public BatchDto updateBatch(int id, BatchDto batchDto) {
-        return null;
+        Batch fetchedBatch= batchRepository.findById(id).orElseThrow(()-> new RuntimeException("No record found"));
+        fetchedBatch.setName(batchDto.getName());
+        fetchedBatch.setDescription(batchDto.getDescription());
+        batchRepository.save(fetchedBatch);
+        return  BatchMapper.mapToBatchDto(fetchedBatch);
     }
 
     @Override
     public BatchDto deleteBatch(int id) {
-        return null;
+        Batch fetchedBatch= batchRepository.findById(id).orElseThrow(()-> new RuntimeException("No record found for deletion"));
+        batchRepository.deleteById(id);
+        return BatchMapper.mapToBatchDto(fetchedBatch);
     }
 }
