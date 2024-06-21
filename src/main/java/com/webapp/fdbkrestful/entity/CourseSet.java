@@ -13,7 +13,7 @@ import java.util.HashSet;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+//@Entity
 @Table(name = "courseset")
 public class CourseSet {
 

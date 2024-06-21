@@ -1,9 +1,6 @@
 package com.webapp.fdbkrestful.utility;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 //@Entity
-//@Table(name="questionnaire")
+@Table(name = "questionnaire")
 public class Questionnaire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
