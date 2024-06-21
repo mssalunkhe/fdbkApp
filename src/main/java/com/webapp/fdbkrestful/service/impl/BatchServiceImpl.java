@@ -4,7 +4,7 @@ import com.webapp.fdbkrestful.dto.BatchDto;
 import com.webapp.fdbkrestful.entity.Batch;
 import com.webapp.fdbkrestful.mapper.BatchMapper;
 import com.webapp.fdbkrestful.repository.BatchRepository;
-import com.webapp.fdbkrestful.service.BatchIService;
+import com.webapp.fdbkrestful.service.BatchService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class BatchServiceImpl implements BatchIService {
+public class BatchServiceImpl implements BatchService {
     BatchRepository batchRepository;
     @Override
     public BatchDto createBatch(BatchDto batchDto) {

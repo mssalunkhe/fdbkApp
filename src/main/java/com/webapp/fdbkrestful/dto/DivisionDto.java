@@ -1,6 +1,5 @@
-package com.webapp.fdbkrestful.entity;
+package com.webapp.fdbkrestful.dto;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,14 +9,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "division")
-public class Division {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class DivisionDto {
     int id;
-    @Column
     String name;
-    @Column
     String description;
 }
