@@ -1,7 +1,6 @@
-package com.webapp.fdbkrestful.entity;
+package com.webapp.fdbkrestful.dto;
 
 import com.webapp.fdbkrestful.utility.Semester;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,22 +8,16 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "courseset")
-public class CourseSet {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@AllArgsConstructor
+public class CourseSetDto {
     int id;
-    @Column
+
     private String name;
-    @Column
+
     private String academicYear;
-    @Column
+
     private Semester semester;
-    //course ids are separated by space
-    @Column
+
     private String courses;
 }
