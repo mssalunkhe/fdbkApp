@@ -7,7 +7,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Adrress {
+public class Address {
 
     String firstLine;
     String city;
