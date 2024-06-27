@@ -3,12 +3,14 @@ package com.webapp.fdbkrestful.mapper;
 import com.webapp.fdbkrestful.dto.DepartmentDto;
 import com.webapp.fdbkrestful.entity.Department;
 
+import java.util.stream.Collectors;
+
 public class DepartmentMapper {
-    public static DepartmentDto mapToDepartmentDto(Department Department) {
-        return new DepartmentDto(Department.getId(), Department.getName(), Department.getDescription());
+    public static DepartmentDto mapToDepartmentDto(Department department) {
+        return new DepartmentDto(department.getId(), department.getName(), department.getClasses().stream().map(SchoolClassMapper::mapToSchoolClassDto).collect(Collectors.toSet()), department.getStatus(), department.getDescription());
     }
 
-    public static Department mapToDepartment(DepartmentDto DepartmentDto) {
-        return new Department(DepartmentDto.getId(), DepartmentDto.getName(), DepartmentDto.getDescription());
+    public static Department mapToDepartment(DepartmentDto departmentDto) {
+        return new Department(departmentDto.getId(), departmentDto.getName(), departmentDto.getClasses().stream().map(SchoolClassMapper::mapToSchoolClass).collect(Collectors.toSet()), departmentDto.getStatus(), departmentDto.getDescription());
     }
 }

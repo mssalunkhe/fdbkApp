@@ -2,6 +2,7 @@ package com.webapp.fdbkrestful.entity;
 
 
 import com.webapp.fdbkrestful.utility.CourseType;
+import com.webapp.fdbkrestful.utility.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +15,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "course")
+@Table(name = "courses")
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +29,8 @@ public class Course {
     @Column
     private CourseType type;
     @Column
+    private Status status;
+    @Column
     private String description;
-
 
 }

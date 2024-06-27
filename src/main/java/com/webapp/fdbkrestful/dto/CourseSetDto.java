@@ -1,10 +1,12 @@
 package com.webapp.fdbkrestful.dto;
 
-import com.webapp.fdbkrestful.utility.Semester;
+import com.webapp.fdbkrestful.utility.Status;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Getter
 @Setter
@@ -15,9 +17,8 @@ public class CourseSetDto {
 
     private String name;
 
-    private String academicYear;
 
-    private Semester semester;
-
-    private String courses;
+    private Set<CourseDto> courses;
+    private Status status;
+    private String description;
 }

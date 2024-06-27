@@ -1,6 +1,7 @@
 package com.webapp.fdbkrestful.dto;
 
 import com.webapp.fdbkrestful.utility.CourseType;
+import com.webapp.fdbkrestful.utility.Status;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class CourseDto {
     private String name;
 
     private CourseType type;
+    private Status status;
 
     private String description;
 }

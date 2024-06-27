@@ -1,5 +1,6 @@
 package com.webapp.fdbkrestful.dto;
 
+import com.webapp.fdbkrestful.utility.Status;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,5 +13,6 @@ import lombok.Setter;
 public class BatchDto {
     int id;
     String name;
+    Status status;
     String description;
 }

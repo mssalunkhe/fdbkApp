@@ -1,15 +1,17 @@
 package com.webapp.fdbkrestful.service.impl;
 
+import com.webapp.fdbkrestful.dto.CourseDto;
 import com.webapp.fdbkrestful.dto.CourseSetDto;
 import com.webapp.fdbkrestful.entity.CourseSet;
+import com.webapp.fdbkrestful.mapper.CourseMapper;
 import com.webapp.fdbkrestful.mapper.CourseSetMapper;
 import com.webapp.fdbkrestful.repository.CourseSetRepository;
 import com.webapp.fdbkrestful.service.CourseSetService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -44,11 +46,10 @@ public class CourseSetServiceImpl implements CourseSetService {
     @Override
     public CourseSetDto updateCourseSet(int id, CourseSetDto courseSetDto) {
         CourseSet fetchedCourseSet = courseSetRepository.findById(id).orElseThrow(() -> new RuntimeException("No record found"));
+        //CourseSetDto courseSetDto= CourseSetMapper.mapToCourseSetDto(fetchedCourseSet);
         fetchedCourseSet.setName(courseSetDto.getName());
-        fetchedCourseSet.setAcademicYear(courseSetDto.getAcademicYear());
-        fetchedCourseSet.setSemester(courseSetDto.getSemester());
-        String courses = Arrays.stream(courseSetDto.getCourses().split(" ")).distinct().collect(Collectors.joining(" "));
-        fetchedCourseSet.setCourses(courses);
+        Set<CourseDto> courses = courseSetDto.getCourses();
+        fetchedCourseSet.setCourses(courses.stream().map(CourseMapper::mapToCourse).collect(Collectors.toSet()));
         courseSetRepository.save(fetchedCourseSet);
         return CourseSetMapper.mapToCourseSetDto(fetchedCourseSet);
     }

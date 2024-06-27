@@ -1,5 +1,6 @@
 package com.webapp.fdbkrestful.entity;
 
+import com.webapp.fdbkrestful.utility.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,13 +12,15 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "batch")
+@Table(name = "batches")
 public class Batch {
     @Id
-            @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     @Column
     String name;
+    @Column
+    Status status;
     @Column
     String description;
 }

@@ -16,7 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "facility")
+@Table(name = "facilities")
 public class Facility {
     @Id
     @Column(unique = true)
