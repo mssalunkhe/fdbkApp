@@ -1,7 +1,5 @@
-package com.webapp.fdbkrestful.entity;
+package com.webapp.fdbkrestful.dto;
 
-
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,23 +9,20 @@ import java.util.Date;
 
 @Getter
 @Setter
-@NoArgsConstructor
+
 @SuperBuilder
-/*@Entity
-@Table(name = "users")*/
-@MappedSuperclass
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@NoArgsConstructor
+
+public class UserDto {
     protected long userID;
-    @Column
+
     protected String address;
-    @Column
+
     protected String name;
-    @Column
+
     protected String email;
-    @Column
+
     protected String mobile;
-    @Column
+
     protected Date dateOfBirth;
 }

@@ -1,23 +1,26 @@
 package com.webapp.fdbkrestful.entity;
 
 
-import com.webapp.fdbkrestful.utility.Relationship;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
+
+import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@SuperBuilder
 @Entity
-//@Table(name = "parents")
+@Table(name = "parents")
 public class Parent extends User {
-    @Column(unique = true)
-    private String PRNOfWard;
-    @Column
-    private Relationship relationWithWard;
+
+    @OneToMany(targetEntity = Student.class)
+    private Set<Student> wards;
+
+
 }
