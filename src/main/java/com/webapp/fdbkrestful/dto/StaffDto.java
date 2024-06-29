@@ -13,9 +13,9 @@ import java.util.Date;
 
 @SuperBuilder
 @NoArgsConstructor
-public class StaffDto {
+public class StaffDto extends UserDto {
 
-    private int id;
+    private int staffId;
 
     private StaffType type;
 

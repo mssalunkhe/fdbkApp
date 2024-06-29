@@ -10,7 +10,7 @@ import lombok.experimental.SuperBuilder;
 
 @SuperBuilder
 @NoArgsConstructor
-public class EmployerDto {
-    private String Company;
+public class EmployerDto extends UserDto {
+    private String company;
     private String designation;
 }

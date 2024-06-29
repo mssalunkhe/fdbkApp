@@ -16,7 +16,7 @@ public class StudentMapper extends UserMapper {
                 .build();
         // return new StudentDto(  student.getType(),student.getInstitute());//,student.getEmail(),student.getAddress(),student.getDateOfBirth(),student.getMobile());
 
-        
+
     }
 
     public static Student mapToStudent(StudentDto studentDto) {

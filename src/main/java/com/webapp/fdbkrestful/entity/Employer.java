@@ -17,7 +17,7 @@ import lombok.experimental.SuperBuilder;
 @Table(name = "employers")
 public class Employer extends User {
     @Column
-    private String Company;
+    private String company;
     @Column
     private String designation;
 

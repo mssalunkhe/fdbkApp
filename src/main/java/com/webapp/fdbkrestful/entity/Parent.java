@@ -19,7 +19,7 @@ import java.util.Set;
 @Table(name = "parents")
 public class Parent extends User {
 
-    @OneToMany(targetEntity = Student.class)
+    @OneToMany
     private Set<Student> wards;
 
 

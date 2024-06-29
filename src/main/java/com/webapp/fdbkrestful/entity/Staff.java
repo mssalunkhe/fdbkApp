@@ -20,7 +20,7 @@ import java.util.Date;
 @Table(name = "staff")
 public class Staff extends User {
     @Column
-    private int id;
+    private int staffId;
     @Column
     private StaffType type;
     @Column

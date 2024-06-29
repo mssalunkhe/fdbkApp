@@ -13,7 +13,7 @@ import java.util.Set;
 
 @SuperBuilder
 @NoArgsConstructor
-public class ParentDto {
+public class ParentDto extends UserDto {
 
     private Set<Student> wards;
 }
