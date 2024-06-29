@@ -14,7 +14,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "student_to_div_map")
-public abstract class StudentToDivisionMap {
+public class StudentToDivisionMap {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -25,7 +25,10 @@ public abstract class StudentToDivisionMap {
     @Column
     private int batchId;
     @Column
+    private int rollNo;
+    @Column
     private String academicYear;
     @Column
     private Semester semester;
+
 }
