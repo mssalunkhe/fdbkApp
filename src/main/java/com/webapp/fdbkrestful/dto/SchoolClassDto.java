@@ -19,4 +19,5 @@ public class SchoolClassDto {
     Set<DivisionDto> divisions;
     Status status;
     String description;
+    private DepartmentDto departmentDto;
 }

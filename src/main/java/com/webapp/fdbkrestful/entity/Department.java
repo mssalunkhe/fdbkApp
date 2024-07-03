@@ -21,8 +21,7 @@ public class Department {
     private int id;
     @Column
     private String name;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "dept_id", referencedColumnName = "id")
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
     private Set<SchoolClass> classes;
     private Status status;
     @Column

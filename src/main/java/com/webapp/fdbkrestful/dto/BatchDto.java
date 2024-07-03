@@ -15,4 +15,5 @@ public class BatchDto {
     String name;
     Status status;
     String description;
+    private DivisionDto divisionDto;
 }

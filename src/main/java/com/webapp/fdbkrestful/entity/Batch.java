@@ -23,4 +23,7 @@ public class Batch {
     Status status;
     @Column
     String description;
+    @ManyToOne
+    @JoinColumn(name = "div_id")
+    private Division division;
 }

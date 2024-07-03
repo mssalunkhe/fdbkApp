@@ -18,4 +18,5 @@ public class DivisionDto {
     Set<BatchDto> batches;
     Status status;
     String description;
+    private SchoolClassDto schoolClassDto;
 }

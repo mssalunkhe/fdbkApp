@@ -27,7 +27,7 @@ public class CourseSet {
     @Column
     private Semester semester;*/
 
-    @OneToMany
+    @OneToMany(mappedBy = "courseSet", cascade = CascadeType.ALL)
     private Set<Course> courses;
     private Status status;
     private String description;

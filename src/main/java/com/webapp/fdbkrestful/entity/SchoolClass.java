@@ -22,11 +22,13 @@ public class SchoolClass {
 
     @Column
     String name;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "class_id", referencedColumnName = "id")
+    @OneToMany(mappedBy = "schoolClass", cascade = CascadeType.ALL)
     Set<Division> divisions;
     @Column
     private Status status;
     @Column
     String description;
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
 }

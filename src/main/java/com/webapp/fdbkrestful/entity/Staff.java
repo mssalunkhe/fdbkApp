@@ -3,8 +3,8 @@ package com.webapp.fdbkrestful.entity;
 
 import com.webapp.fdbkrestful.utility.StaffType;
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,7 +17,8 @@ import java.util.Date;
 @NoArgsConstructor
 @SuperBuilder
 @Entity
-@Table(name = "staff")
+@DiscriminatorValue("staff")
+//@Table(name = "staff")
 public class Staff extends User {
     @Column
     private int staffId;

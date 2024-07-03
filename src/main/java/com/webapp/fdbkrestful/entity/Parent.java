@@ -1,9 +1,9 @@
 package com.webapp.fdbkrestful.entity;
 
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,7 +16,8 @@ import java.util.Set;
 @NoArgsConstructor
 @SuperBuilder
 @Entity
-@Table(name = "parents")
+@DiscriminatorValue("parent")
+//@Table(name = "parents")
 public class Parent extends User {
 
     @OneToMany

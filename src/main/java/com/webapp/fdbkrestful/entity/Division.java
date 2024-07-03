@@ -22,11 +22,13 @@ public class Division {
 
     @Column
     String name;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "div_id", referencedColumnName = "id")
+    @OneToMany(mappedBy = "division", cascade = CascadeType.ALL)
     Set<Batch> batches;
     @Column
     private Status status;
     @Column
     String description;
+    @ManyToOne
+    @JoinColumn(name = "class_id")
+    private SchoolClass schoolClass;
 }
