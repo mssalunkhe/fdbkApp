@@ -1,25 +1,17 @@
 package com.webapp.fdbkrestful.utility;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.util.List;
-
-@Getter
+/*@Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor*/
 //@Entity
-@Table(name = "questionnaire")
+//@Table(name = "questionnaire")
 public class Questionnaire {
-    @Id
+    /*@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column
-    private List<Question> questions;
+    @OneToMany(targetEntity = Question.class)
+    private List<Question> questions;*/
 
 
 }

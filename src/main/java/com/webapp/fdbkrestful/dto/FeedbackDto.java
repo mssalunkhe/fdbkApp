@@ -1,8 +1,9 @@
-package com.webapp.fdbkrestful.entity;
+package com.webapp.fdbkrestful.dto;
 
+import com.webapp.fdbkrestful.entity.Question;
+import com.webapp.fdbkrestful.entity.User;
 import com.webapp.fdbkrestful.utility.FacilityType;
 import com.webapp.fdbkrestful.utility.Semester;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,32 +16,26 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "feedback")
-public class Feedback {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class FeedbackDto {
     private int id;
-    @Column
+
     private String title;
-    @Column
+
     private Date startDate;
-    @Column
+
     private Date endDate;
-    @Column
+
     private String academicYear;
-    @Column
+
     private Semester semester;
-    @Column
+
     private FacilityType onFacility;
-    @OneToMany(targetEntity = User.class)
+
     private Set<User> givers;
-    @OneToMany(targetEntity = User.class)
+
     private Set<User> takers;
-    @OneToMany(targetEntity = Question.class)
+
     private Set<Question> questionnaire;
-    @Column
+
     private String description;
-
-
 }

@@ -32,8 +32,8 @@ public class Course {
     private Status status;
     @Column
     private String description;
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "courseset_id")
-    private CourseSet courseSet;
+    private CourseSet courseSet;*/
 
 }
