@@ -14,7 +14,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "div_to_courseset_map")
-public abstract class DivisionToCourseSetMap {
+public abstract class BatchToCourseSetMap {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -22,8 +22,10 @@ public abstract class DivisionToCourseSetMap {
     private String academicYear;
     @Column
     private Semester semester;
-    @Column
-    private int divisionId;
-    @Column
-    private int courseSetId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "batch_id", referencedColumnName = "id")
+    private Batch batch;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "courseset_id", referencedColumnName = "id")
+    private CourseSet courseSet;
 }

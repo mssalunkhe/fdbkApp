@@ -7,12 +7,14 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import java.util.Map;
+//import java.util.Map;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @SuperBuilder
 @DiscriminatorValue("mcq")
+@Entity
 
 public class Mcq extends Question {
     @ElementCollection
