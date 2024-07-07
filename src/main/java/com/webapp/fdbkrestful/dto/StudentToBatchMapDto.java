@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudentToDivisionMapDto {
+public class StudentToBatchMapDto {
     private long id;
 
     private StudentDto studentDto;

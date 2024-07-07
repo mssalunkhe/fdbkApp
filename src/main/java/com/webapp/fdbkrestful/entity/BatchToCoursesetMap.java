@@ -13,22 +13,19 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "student_to_div_map")
-public class StudentToDivisionMap {
+@Table(name = "div_to_courseset_map")
+public  class BatchToCoursesetMap {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column
-    private long studentId;
-    /*@Column
-    private int divisionId;*/
-    @Column
-    private int batchId;
-    @Column
-    private int rollNo;
+    private int id;
     @Column
     private String academicYear;
     @Column
     private Semester semester;
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "batch_id", referencedColumnName = "id")
+    private Batch batch;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "courseset_id", referencedColumnName = "id")
+    private CourseSet courseSet;
 }

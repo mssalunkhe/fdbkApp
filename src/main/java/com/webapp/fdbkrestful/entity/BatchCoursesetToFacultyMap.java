@@ -27,11 +27,11 @@ class AssignmentId implements Serializable {
 @Entity
 @Table(name = "batchcourseset_to_faculty_map")
 
-public class BatchCourseSetToFacultyMap {
+public class BatchCoursesetToFacultyMap {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "batchtocoursesetmap_id", referencedColumnName = "id")
     @Id
-    private BatchToCourseSetMap batchToCourseSetMap;
+    private BatchToCoursesetMap batchToCourseSetMap;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "course_staff_mapping",
             joinColumns = {@JoinColumn(name = "mapid", referencedColumnName = "batchtocoursesetmap_id")},
