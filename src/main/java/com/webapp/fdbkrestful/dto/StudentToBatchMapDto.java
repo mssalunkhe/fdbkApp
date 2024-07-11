@@ -1,6 +1,10 @@
 package com.webapp.fdbkrestful.dto;
 
+import com.webapp.fdbkrestful.entity.Batch;
+import com.webapp.fdbkrestful.entity.Student;
 import com.webapp.fdbkrestful.utility.Semester;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,17 +15,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StudentToBatchMapDto {
-    private long id;
-
     private StudentDto studentDto;
-    /*
-    private int divisionId;*/
-
     private BatchDto batchDto;
+    private String academicYear;
+    private Semester semester;
 
     private int rollNo;
 
-    private String academicYear;
 
-    private Semester semester;
 }

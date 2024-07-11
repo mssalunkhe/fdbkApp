@@ -21,11 +21,11 @@ public class StudentToBatchMapController {
         return new ResponseEntity<>(createdStudentToBatchMap, HttpStatus.CREATED);
     }
 
-    @GetMapping("{id}")
+    /*@GetMapping("{id}")
     public ResponseEntity<StudentToBatchMapDto> getStudentToBatchMapById(@PathVariable("id") int id) {
         StudentToBatchMapDto fetchedStudentToBatchMap = studentToBatchMapService.getStudentToBatchMapByID(id);
         return ResponseEntity.ok(fetchedStudentToBatchMap);
-    }
+    }*/
 
     @GetMapping()
     public ResponseEntity<List<StudentToBatchMapDto>> getAllStudentToBatchMapes() {
@@ -33,15 +33,15 @@ public class StudentToBatchMapController {
         return ResponseEntity.ok(fetchedStudentToBatchMaps);
     }
 
-    @DeleteMapping("{id}")
+    /*@DeleteMapping("{id}")
     public ResponseEntity<StudentToBatchMapDto> deleteStudentToBatchMapById(@PathVariable("id") int id) {
         StudentToBatchMapDto deletedStudentToBatchMap = studentToBatchMapService.deleteStudentToBatchMap(id);
         return ResponseEntity.ok(deletedStudentToBatchMap);
-    }
+    }*/
 
-    @PutMapping("{id}")
+    /*@PutMapping("{id}")
     public ResponseEntity<StudentToBatchMapDto> updateStudentToBatchMap(@PathVariable("id") int id, @RequestBody StudentToBatchMapDto studentToBatchMapDto) {
         StudentToBatchMapDto updatedStudentToBatchMap = studentToBatchMapService.updateStudentToBatchMap(id, studentToBatchMapDto);
         return ResponseEntity.ok(updatedStudentToBatchMap);
-    }
+    }*/
 }

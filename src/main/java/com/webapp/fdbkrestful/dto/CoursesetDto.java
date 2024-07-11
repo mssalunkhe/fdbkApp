@@ -12,7 +12,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CourseSetDto {
+public class CoursesetDto {
     int id;
 
     private String name;

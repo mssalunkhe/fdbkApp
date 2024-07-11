@@ -13,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "div_to_courseset_map")
+@Table(name = "batch_to_courseset_map")
 public  class BatchToCoursesetMap {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,5 +27,5 @@ public  class BatchToCoursesetMap {
     private Batch batch;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "courseset_id", referencedColumnName = "id")
-    private CourseSet courseSet;
+    private Courseset courseset;
 }

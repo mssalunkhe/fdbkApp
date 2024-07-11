@@ -2,10 +2,7 @@ package com.webapp.fdbkrestful.entity;
 
 import com.webapp.fdbkrestful.utility.Status;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Set;
 
@@ -15,7 +12,8 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "coursesets")
-public class CourseSet {
+@Data
+public class Courseset {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +25,7 @@ public class CourseSet {
     @Column
     private Semester semester;*/
 
-    @OneToMany(targetEntity = Course.class)
+    @OneToMany(mappedBy = "courseset", cascade = CascadeType.ALL)
     private Set<Course> courses;
     private Status status;
     private String description;

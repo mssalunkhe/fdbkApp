@@ -1,7 +1,6 @@
 package com.webapp.fdbkrestful.entity;
 
 
-import com.webapp.fdbkrestful.utility.Semester;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,22 +12,22 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "student_to_div_map")
+@Table(name = "student_to_batch_map")
 public class StudentToBatchMap {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column
-    private long studentId;
-    /*@Column
-    private int divisionId;*/
-    @Column
-    private int batchId;
+
+    /*@OneToOne(cascade= CascadeType.ALL)
+    @JoinColumn(name = "stud_id", referencedColumnName = "userID")
+    private Student student;
+    *//*@Column
+    private int divisionId;*//*
+    @OneToOne(cascade= CascadeType.ALL)
+    @JoinColumn(name = "batch_id", referencedColumnName = "id")
+    private Batch batch;*/
+    @EmbeddedId
+    StudentToBatchMapCompositeKey studentToBatchMapCompositeKey;
+
     @Column
     private int rollNo;
-    @Column
-    private String academicYear;
-    @Column
-    private Semester semester;
+
 
 }

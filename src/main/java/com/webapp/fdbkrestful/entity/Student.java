@@ -15,7 +15,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Entity
 @DiscriminatorValue("student")
-//@Table(name = "students")
 public class Student extends User {
     @Column(unique = true)
     private String PRN;

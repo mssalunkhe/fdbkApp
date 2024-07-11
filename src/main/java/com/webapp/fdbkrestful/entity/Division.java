@@ -2,10 +2,7 @@ package com.webapp.fdbkrestful.entity;
 
 import com.webapp.fdbkrestful.utility.Status;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Set;
 
@@ -15,6 +12,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "divisions")
+@Data
 public class Division {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
