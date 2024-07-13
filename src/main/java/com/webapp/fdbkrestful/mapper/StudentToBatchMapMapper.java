@@ -14,18 +14,10 @@ public class StudentToBatchMapMapper {
     static BatchRepository batchRepository;
 
     public static StudentToBatchMapDto mapToStudentToBatchMapDto(StudentToBatchMap studentToBatchMap) {
-
-       
-
-        return new StudentToBatchMapDto(StudentMapper.mapToStudentDto(studentToBatchMap.getStudentToBatchMapCompositeKey().getStudent()),
-                BatchMapper.mapToBatchDto(studentToBatchMap.getStudentToBatchMapCompositeKey().getBatch()),
-                studentToBatchMap.getStudentToBatchMapCompositeKey().getAcademicYear(),studentToBatchMap.getStudentToBatchMapCompositeKey().getSemester(), studentToBatchMap.getRollNo());
+        return new StudentToBatchMapDto(studentToBatchMap.getKey(), studentToBatchMap.getRollNo());
     }
 
     public static StudentToBatchMap mapToStudentToBatchMap(StudentToBatchMapDto studentToBatchMapDto) {
-         StudentToBatchMapCompositeKey key=new StudentToBatchMapCompositeKey(StudentMapper.mapToStudent(studentToBatchMapDto.getStudentDto()),
-                 BatchMapper.mapToBatch(studentToBatchMapDto.getBatchDto())
-                , studentToBatchMapDto.getAcademicYear(),studentToBatchMapDto.getSemester());
-        return new StudentToBatchMap(key,studentToBatchMapDto.getRollNo());
+        return new StudentToBatchMap(studentToBatchMapDto.getKey(),studentToBatchMapDto.getRollNo());
     }
 }

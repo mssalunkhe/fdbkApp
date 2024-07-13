@@ -2,25 +2,22 @@ package com.webapp.fdbkrestful.dto;
 
 import com.webapp.fdbkrestful.entity.Batch;
 import com.webapp.fdbkrestful.entity.Student;
+import com.webapp.fdbkrestful.entity.StudentToBatchMapCompositeKey;
 import com.webapp.fdbkrestful.utility.Semester;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class StudentToBatchMapDto {
-    private StudentDto studentDto;
-    private BatchDto batchDto;
-    private String academicYear;
-    private Semester semester;
 
+    StudentToBatchMapCompositeKey key;
     private int rollNo;
-
-
 }

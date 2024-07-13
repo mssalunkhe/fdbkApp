@@ -1,5 +1,6 @@
 package com.webapp.fdbkrestful.dto;
 
+import com.webapp.fdbkrestful.utility.Semester;
 import com.webapp.fdbkrestful.utility.Status;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,5 +16,7 @@ public class BatchDto {
     String name;
     Status status;
     String description;
+    String academicYear;
+    Semester semester;
     private DivisionDto divisionDto;
 }

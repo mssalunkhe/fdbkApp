@@ -25,6 +25,7 @@ public class BatchToCoursesetMapController {
         BatchToCoursesetMapDto fetchedBatchToCoursesetMap = batchToCoursesetMapService.getBatchToCoursesetMapByID(id);
         return ResponseEntity.ok(fetchedBatchToCoursesetMap);
     }
+    /*
     @GetMapping()
     public ResponseEntity<List<BatchToCoursesetMapDto>> getAllBatchToCoursesetMapes(){
         List<BatchToCoursesetMapDto> fetchedBatchToCoursesetMapes = batchToCoursesetMapService.getAllBatchToCoursesetMapes();
@@ -39,5 +40,5 @@ public class BatchToCoursesetMapController {
     public ResponseEntity<BatchToCoursesetMapDto> updateBatchToCoursesetMap(@PathVariable("id") int id,@RequestBody BatchToCoursesetMapDto batchToCoursesetMapDto){
         BatchToCoursesetMapDto updatedBatchToCoursesetMap = batchToCoursesetMapService.updateBatchToCoursesetMap(id, batchToCoursesetMapDto);
         return  ResponseEntity.ok(updatedBatchToCoursesetMap);
-    }
+    }*/
 }

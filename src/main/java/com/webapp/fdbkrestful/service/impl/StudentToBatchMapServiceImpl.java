@@ -23,11 +23,11 @@ public class StudentToBatchMapServiceImpl implements StudentToBatchMapService {
         return StudentToBatchMapMapper.mapToStudentToBatchMapDto(createdStudentToBatchMap);
     }
 
-    /*@Override
+    @Override
     public StudentToBatchMapDto getStudentToBatchMapByID(StudentToBatchMapCompositeKey key) {
         StudentToBatchMap fetchedStudentToBatchMap = studentToBatchMapRepository.findById(key).orElseThrow(() -> new RuntimeException("No record found"));
         return StudentToBatchMapMapper.mapToStudentToBatchMapDto(fetchedStudentToBatchMap);
-    }*/
+    }
 
     @Override
     public List<StudentToBatchMapDto> getAllStudentToBatchMaps() {
@@ -35,19 +35,18 @@ public class StudentToBatchMapServiceImpl implements StudentToBatchMapService {
         return studentToBatchMapRepository.findAll().stream().map(StudentToBatchMapMapper::mapToStudentToBatchMapDto).toList();
     }
 
-    /*@Override
-    public StudentToBatchMapDto updateStudentToBatchMap(int id, StudentToBatchMapDto studentToBatchMapDto) {
-        StudentToBatchMap fetchedStudentToBatchMap = studentToBatchMapRepository.findById(id).orElseThrow(() -> new RuntimeException("No record found"));
-        fetchedStudentToBatchMap.setStudentId(studentToBatchMapDto.getStudentDto().getUserID());
-        fetchedStudentToBatchMap.setBatchId(studentToBatchMapDto.getBatchDto().getId());
+    @Override
+    public StudentToBatchMapDto updateStudentToBatchMap(StudentToBatchMapCompositeKey key, StudentToBatchMapDto studentToBatchMapDto) {
+        StudentToBatchMap fetchedStudentToBatchMap = studentToBatchMapRepository.findById(key).orElseThrow(() -> new RuntimeException("No record found"));
+        fetchedStudentToBatchMap.setKey(studentToBatchMapDto.getKey());
         studentToBatchMapRepository.save(fetchedStudentToBatchMap);
         return StudentToBatchMapMapper.mapToStudentToBatchMapDto(fetchedStudentToBatchMap);
-    }*/
+    }
 
-    /*@Override
+    @Override
     public StudentToBatchMapDto deleteStudentToBatchMap(StudentToBatchMapCompositeKey key) {
-        StudentToBatchMap fetchedStudentToBatchMap = studentToBatchMapRepository.findById(id).orElseThrow(() -> new RuntimeException("No record found for deletion"));
-        studentToBatchMapRepository.deleteById(id);
+        StudentToBatchMap fetchedStudentToBatchMap = studentToBatchMapRepository.findById(key).orElseThrow(() -> new RuntimeException("No record found for deletion"));
+        studentToBatchMapRepository.deleteById(key);
         return StudentToBatchMapMapper.mapToStudentToBatchMapDto(fetchedStudentToBatchMap);
-    }*/
+    }
 }

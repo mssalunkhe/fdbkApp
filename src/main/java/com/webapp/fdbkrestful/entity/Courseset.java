@@ -6,8 +6,7 @@ import lombok.*;
 
 import java.util.Set;
 
-@Getter
-@Setter
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -25,7 +24,8 @@ public class Courseset {
     @Column
     private Semester semester;*/
 
-    @OneToMany(mappedBy = "courseset", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="course_id", referencedColumnName = "id")
     private Set<Course> courses;
     private Status status;
     private String description;
