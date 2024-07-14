@@ -1,13 +1,13 @@
 package com.webapp.fdbkrestful.entity;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+
+import java.util.Set;
 
 @Getter
 @Setter
@@ -20,4 +20,7 @@ public class Student extends User {
     private String PRN;
     @Column
     private int yearOfAdmission;
+    @OneToMany(targetEntity = Batch.class)
+    Set<Batch> batches;
+
 }

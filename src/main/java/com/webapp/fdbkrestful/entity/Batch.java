@@ -5,6 +5,8 @@ import com.webapp.fdbkrestful.utility.Status;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Map;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,4 +30,9 @@ public class Batch {
     @ManyToOne
     @JoinColumn(name = "div_id")
     private Division division;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "courseset_id", referencedColumnName = "id")
+    Courseset courseset;
+    @OneToMany
+    Map<Course,Staff> courseInstructors;
 }
