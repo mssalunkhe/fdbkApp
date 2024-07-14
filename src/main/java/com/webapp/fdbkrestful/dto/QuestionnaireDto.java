@@ -18,7 +18,7 @@ import java.util.Set;
 public class QuestionnaireDto {
     private int id;
 
-    Set<Question> questions;
+    Set<QuestionDto> questionsDto;
 
     @Column
     private String title;

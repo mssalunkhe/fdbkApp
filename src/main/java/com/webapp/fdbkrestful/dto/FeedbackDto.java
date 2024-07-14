@@ -1,6 +1,7 @@
 package com.webapp.fdbkrestful.dto;
 
 import com.webapp.fdbkrestful.entity.Question;
+import com.webapp.fdbkrestful.entity.Questionnaire;
 import com.webapp.fdbkrestful.entity.User;
 import com.webapp.fdbkrestful.utility.FacilityType;
 import com.webapp.fdbkrestful.utility.Semester;
@@ -35,7 +36,7 @@ public class FeedbackDto {
 
     private Set<User> takers;
 
-    private Set<Question> questionnaire;
+    private QuestionnaireDto questionnaireDto;
 
     private String description;
 }

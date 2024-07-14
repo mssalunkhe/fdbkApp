@@ -24,5 +24,4 @@ public class CourseDto {
     private Status status;
 
     private String description;
-    private CoursesetDto coursesetDto;
 }

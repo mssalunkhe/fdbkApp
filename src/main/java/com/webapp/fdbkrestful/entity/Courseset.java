@@ -24,9 +24,11 @@ public class Courseset {
     @Column
     private Semester semester;*/
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="course_id", referencedColumnName = "id")
-    private Set<Course> courses;
+    @ManyToMany
+    @JoinTable(name = "courseset_courses",
+            joinColumns = @JoinColumn(name = "courseset_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id"))
+        private Set<Course> courses;
     private Status status;
     private String description;
 }

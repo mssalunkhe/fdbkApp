@@ -2,6 +2,7 @@ package com.webapp.fdbkrestful.service.impl;
 
 import com.webapp.fdbkrestful.dto.QuestionnaireDto;
 import com.webapp.fdbkrestful.entity.Questionnaire;
+import com.webapp.fdbkrestful.mapper.QuestionMapper;
 import com.webapp.fdbkrestful.mapper.QuestionnaireMapper;
 import com.webapp.fdbkrestful.repository.QuestionnaireRepository;
 import com.webapp.fdbkrestful.service.QuestionnaireService;
@@ -9,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -37,7 +39,7 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
     @Override
     public QuestionnaireDto updateQuestionnaire(int id, QuestionnaireDto questionnaireDto) {
         Questionnaire fetchedQuestionnaire = questionnaireRepository.findById(id).orElseThrow(() -> new RuntimeException("No record found"));
-        fetchedQuestionnaire.setQuestions(questionnaireDto.getQuestions());
+        fetchedQuestionnaire.setQuestions(questionnaireDto.getQuestionsDto().stream().map(QuestionMapper::mapToQuestion).collect(Collectors.toSet()));
         fetchedQuestionnaire.setTitle(questionnaireDto.getTitle());
         questionnaireRepository.save(fetchedQuestionnaire);
         return QuestionnaireMapper.mapToQuestionnaireDto(fetchedQuestionnaire);

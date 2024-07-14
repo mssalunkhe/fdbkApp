@@ -37,8 +37,8 @@ public class Feedback {
     private Set<User> givers;
     @OneToMany(targetEntity = User.class)
     private Set<User> takers;
-    @OneToMany(targetEntity = Question.class)
-    private Set<Question> questionnaire;
+    @OneToOne(targetEntity = Questionnaire.class)
+    private Questionnaire questionnaire;
     @Column
     private String description;
 

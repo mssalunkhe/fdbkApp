@@ -21,10 +21,10 @@ public class Questionnaire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "questionnaire_map",
-    joinColumns = @JoinColumn(name = "id"),
-    inverseJoinColumns = @JoinColumn(name= "id"))
+    @ManyToMany
+    @JoinTable(name = "questionnaire_questions",
+            joinColumns = @JoinColumn(name = "questionnaire_id"),
+            inverseJoinColumns = @JoinColumn(name = "question_id"))
     Set<Question> questions;
 
     @Column
