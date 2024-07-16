@@ -1,21 +1,24 @@
 package com.webapp.fdbkrestful.entity;
 
-
-import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-@Getter
-@Setter
 @AllArgsConstructor
-@DiscriminatorValue("text_question")
-@SuperBuilder
+@NoArgsConstructor
+
 @Entity
-public class TextQuestion extends Question {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "question_type",
+        discriminatorType = DiscriminatorType.STRING)
+@Table(name = "questions")
+@Data
+@SuperBuilder
+public class TextQuestion {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected int id;
+
     @Column
-    private String answer;
+    protected String text;
 }

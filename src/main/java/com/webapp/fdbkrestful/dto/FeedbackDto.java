@@ -1,6 +1,6 @@
 package com.webapp.fdbkrestful.dto;
 
-import com.webapp.fdbkrestful.entity.Question;
+
 import com.webapp.fdbkrestful.entity.Questionnaire;
 import com.webapp.fdbkrestful.entity.User;
 import com.webapp.fdbkrestful.utility.FacilityType;
@@ -32,11 +32,12 @@ public class FeedbackDto {
 
     private FacilityType onFacility;
 
-    private Set<User> givers;
+    private Set<UserDto> givers;
 
-    private Set<User> takers;
+    private Set<UserDto> takers;
 
     private QuestionnaireDto questionnaireDto;
 
     private String description;
+    private Set<ResponseDto> responses;
 }

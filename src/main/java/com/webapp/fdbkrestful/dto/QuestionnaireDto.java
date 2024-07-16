@@ -1,7 +1,7 @@
 package com.webapp.fdbkrestful.dto;
 
 import com.webapp.fdbkrestful.entity.Feedback;
-import com.webapp.fdbkrestful.entity.Question;
+import com.webapp.fdbkrestful.entity.TextQuestion;
 import com.webapp.fdbkrestful.entity.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,8 +18,8 @@ import java.util.Set;
 public class QuestionnaireDto {
     private int id;
 
-    Set<QuestionDto> questionsDto;
+    Set<TextQuestionDto> questionsDto;
 
-    @Column
+
     private String title;
 }

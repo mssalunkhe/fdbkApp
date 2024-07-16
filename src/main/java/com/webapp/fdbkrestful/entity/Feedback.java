@@ -41,6 +41,8 @@ public class Feedback {
     private Questionnaire questionnaire;
     @Column
     private String description;
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = Response.class)
+    Set<Response> responses;
 
 
 }

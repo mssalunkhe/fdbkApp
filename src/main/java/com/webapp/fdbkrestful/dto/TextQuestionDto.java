@@ -1,5 +1,6 @@
 package com.webapp.fdbkrestful.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,11 +8,11 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-
-@SuperBuilder
 @NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
+public class TextQuestionDto {
+    protected int id;
 
-
-public class TextQuestionDto extends QuestionDto {
-    private String answer;
+    protected String text;
 }

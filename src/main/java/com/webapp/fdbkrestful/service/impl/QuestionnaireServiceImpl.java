@@ -2,7 +2,7 @@ package com.webapp.fdbkrestful.service.impl;
 
 import com.webapp.fdbkrestful.dto.QuestionnaireDto;
 import com.webapp.fdbkrestful.entity.Questionnaire;
-import com.webapp.fdbkrestful.mapper.QuestionMapper;
+import com.webapp.fdbkrestful.mapper.TextQuestionMapper;
 import com.webapp.fdbkrestful.mapper.QuestionnaireMapper;
 import com.webapp.fdbkrestful.repository.QuestionnaireRepository;
 import com.webapp.fdbkrestful.service.QuestionnaireService;
@@ -39,7 +39,7 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
     @Override
     public QuestionnaireDto updateQuestionnaire(int id, QuestionnaireDto questionnaireDto) {
         Questionnaire fetchedQuestionnaire = questionnaireRepository.findById(id).orElseThrow(() -> new RuntimeException("No record found"));
-        fetchedQuestionnaire.setQuestions(questionnaireDto.getQuestionsDto().stream().map(QuestionMapper::mapToQuestion).collect(Collectors.toSet()));
+        fetchedQuestionnaire.setQuestions(questionnaireDto.getQuestionsDto().stream().map(TextQuestionMapper::mapToTextQuestion).collect(Collectors.toSet()));
         fetchedQuestionnaire.setTitle(questionnaireDto.getTitle());
         questionnaireRepository.save(fetchedQuestionnaire);
         return QuestionnaireMapper.mapToQuestionnaireDto(fetchedQuestionnaire);

@@ -14,7 +14,7 @@ import java.util.Map;
 @NoArgsConstructor
 
 
-public class McqDto extends QuestionDto {
+public class McqDto extends TextQuestionDto {
     private Map<String, Double> options;
     private float answer;
 }
