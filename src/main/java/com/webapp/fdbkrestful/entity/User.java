@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -32,9 +33,17 @@ public class User {
     @Column
     protected String email;
     @Column
+    protected String password;
+    @Column
     protected String mobile;
     @Column
     protected Date dateOfBirth;
+    @Column
+    protected LocalDateTime createdOn;
+    @Column
+    protected LocalDateTime updatedOn;
+    @Column
+    protected LocalDateTime deletedOn;
 
 
 }

@@ -5,10 +5,12 @@ import com.webapp.fdbkrestful.entity.Course;
 
 public class CourseMapper {
     public static CourseDto mapToCourseDto(Course course) {
-        return new CourseDto(course.getId(), course.getCode(), course.getAbbreviation(), course.getName(), course.getType(), course.getStatus(), course.getDescription());
+        return new CourseDto(course.getId(), course.getCode(), course.getAbbreviation(), 
+                course.getName(), course.getType(),course.getStatus(),course.getDescription(),course.getCreatedOn(),course.getUpdatedOn(),course.getDeletedOn());
     }
 
     public static Course mapToCourse(CourseDto courseDto) {
-        return new Course(courseDto.getId(), courseDto.getCode(), courseDto.getAbbreviation(), courseDto.getName(), courseDto.getType(), courseDto.getStatus(), courseDto.getDescription());
+        return new Course(courseDto.getId(), courseDto.getCode(), courseDto.getAbbreviation(), courseDto.getName(), 
+                courseDto.getType(), courseDto.getStatus(), courseDto.getDescription(),courseDto.getCreatedOn(),courseDto.getUpdatedOn(),courseDto.getDeletedOn());
     }
 }

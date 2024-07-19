@@ -11,6 +11,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,4 +25,10 @@ public class Facility {
     private FacilityType name;
     @Column
     private String description;
+    @Column
+    private LocalDateTime createdOn;
+    @Column
+    private LocalDateTime updatedOn;
+    @Column
+    private LocalDateTime deletedOn;
 }

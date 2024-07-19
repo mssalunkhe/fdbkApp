@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Getter
@@ -18,4 +19,9 @@ public class DepartmentDto {
     Set<SchoolClassDto> classes;
     Status status;
     String description;
+    private LocalDateTime createdOn;
+
+    private LocalDateTime updatedOn;
+
+    private LocalDateTime deletedOn;
 }

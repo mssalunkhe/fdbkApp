@@ -32,7 +32,7 @@ public class BatchMapper {
 
         return new BatchDto(batch.getId(), batch.getName(), batch.getStatus(), batch.getDescription(),
                 batch.getAcademicYear(), batch.getSemester(),DivisionMapper.mapToDivisionDto(batch.getDivision()),CoursesetMapper.mapToCoursesetDto(batch.getCourseset())
-                , courseDtoStaffDtoMap,studentsDto);
+                , courseDtoStaffDtoMap,studentsDto,batch.getCreatedOn(),batch.getUpdatedOn(),batch.getDeletedOn());
     }
     public static Batch mapToBatch(BatchDto batchDto){
         Set<StudentDto> studentsDto=batchDto.getStudentsDto();
@@ -47,6 +47,6 @@ public class BatchMapper {
                 CourseMapper.mapToCourse(key),StaffMapper.mapToStaff(courseDtoStaffDtoMap.get(key))));
 
         return new Batch(batchDto.getId(), batchDto.getName(), batchDto.getStatus(), batchDto.getDescription(), batchDto.getAcademicYear(), batchDto.getSemester(),DivisionMapper.mapToDivision(batchDto.getDivisionDto()),
-                CoursesetMapper.mapToCourseset(batchDto.getCoursesetDto()),courseStaffMap,students);
+                CoursesetMapper.mapToCourseset(batchDto.getCoursesetDto()),courseStaffMap,students,batchDto.getCreatedOn(),batchDto.getUpdatedOn(),batchDto.getDeletedOn());
     }
 }

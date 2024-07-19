@@ -6,6 +6,7 @@ import com.webapp.fdbkrestful.utility.Status;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Getter
@@ -33,4 +34,10 @@ public class SchoolClass {
     @ManyToOne
     @JoinColumn(name = "department_id")
     private Department department;
+    @Column
+    private LocalDateTime createdOn;
+    @Column
+    private LocalDateTime updatedOn;
+    @Column
+    private LocalDateTime deletedOn;
 }

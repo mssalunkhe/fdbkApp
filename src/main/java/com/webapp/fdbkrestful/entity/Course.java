@@ -6,6 +6,8 @@ import com.webapp.fdbkrestful.utility.Status;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 
 @Getter
 @Setter
@@ -30,6 +32,12 @@ public class Course {
     private Status status;
     @Column
     private String description;
+    @Column
+    private LocalDateTime createdOn;
+    @Column
+    private LocalDateTime updatedOn;
+    @Column
+    private LocalDateTime deletedOn;
 
 
 }

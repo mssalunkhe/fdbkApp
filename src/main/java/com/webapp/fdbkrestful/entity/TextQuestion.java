@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDateTime;
+
 @AllArgsConstructor
 @NoArgsConstructor
 
@@ -21,4 +23,10 @@ public class TextQuestion {
 
     @Column
     protected String text;
+    @Column
+    protected LocalDateTime createdOn;
+    @Column
+    protected LocalDateTime updatedOn;
+    @Column
+    protected LocalDateTime deletedOn;
 }

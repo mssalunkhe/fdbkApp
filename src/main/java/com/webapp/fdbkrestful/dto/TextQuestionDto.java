@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,4 +17,9 @@ public class TextQuestionDto {
     protected int id;
 
     protected String text;
+    protected LocalDateTime createdOn;
+
+    protected LocalDateTime updatedOn;
+
+    protected LocalDateTime deletedOn;
 }

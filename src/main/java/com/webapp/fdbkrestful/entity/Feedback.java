@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Set;
 
@@ -43,6 +44,12 @@ public class Feedback {
     private String description;
     @OneToMany(cascade = CascadeType.ALL, targetEntity = Response.class)
     Set<Response> responses;
+    @Column
+    private LocalDateTime createdOn;
+    @Column
+    private LocalDateTime updatedOn;
+    @Column
+    private LocalDateTime deletedOn;
 
 
 }

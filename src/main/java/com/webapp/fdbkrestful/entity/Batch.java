@@ -5,6 +5,7 @@ import com.webapp.fdbkrestful.utility.Status;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Set;
 
@@ -45,6 +46,12 @@ public class Batch {
             joinColumns = @JoinColumn(name = "batch_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id"))
     Set<Student> students;
+    @Column
+    private LocalDateTime createdOn;
+    @Column
+    private LocalDateTime updatedOn;
+    @Column
+    private LocalDateTime deletedOn;
 
 }
 

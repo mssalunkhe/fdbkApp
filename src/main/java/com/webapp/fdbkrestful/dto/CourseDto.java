@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,4 +26,9 @@ public class CourseDto {
     private Status status;
 
     private String description;
+    private LocalDateTime createdOn;
+
+    private LocalDateTime updatedOn;
+
+    private LocalDateTime deletedOn;
 }

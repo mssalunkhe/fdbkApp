@@ -1,10 +1,15 @@
 package com.webapp.fdbkrestful.controller;
 
 import com.webapp.fdbkrestful.dto.StudentDto;
+import com.webapp.fdbkrestful.entity.Student;
+import com.webapp.fdbkrestful.entity.User;
+import com.webapp.fdbkrestful.repository.StudentRepository;
 import com.webapp.fdbkrestful.service.StudentService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/student")
 public class StudentController {
+    private final StudentRepository studentRepository;
     private StudentService studentService;
 
     @PostMapping
@@ -21,11 +27,11 @@ public class StudentController {
         return new ResponseEntity<>(createdStudent, HttpStatus.CREATED);
     }
 
-    @GetMapping("{id}")
+    /*@GetMapping("{id}")
     public ResponseEntity<StudentDto> getStudentById(@PathVariable("id") int id) {
         StudentDto fetchedStudent = studentService.getStudentByID(id);
         return ResponseEntity.ok(fetchedStudent);
-    }
+    }*/
 
     @GetMapping()
     public ResponseEntity<List<StudentDto>> getAllStudentes() {
@@ -43,5 +49,23 @@ public class StudentController {
     public ResponseEntity<StudentDto> updateStudent(@PathVariable("id") int id, @RequestBody StudentDto studentDto) {
         StudentDto updatedStudent = studentService.updateStudent(id, studentDto);
         return ResponseEntity.ok(updatedStudent);
+    }
+    @GetMapping("/signup")
+    public String showSignUpForm(Student student) {
+        return "sign-up";
+    }
+    @PostMapping("/addstudent")
+    public String addStudent( Student student, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "sign-up";
+        }
+
+        studentRepository.save(student);
+        return "redirect:/index";
+    }
+    @GetMapping("/index")
+    public String showUserList(Model model) {
+        model.addAttribute("students", studentRepository.findAll());
+        return "index";
     }
 }

@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Set;
 
@@ -33,5 +34,10 @@ public class BatchDto {
     Map<CourseDto, StaffDto> courseInstructorsDto;
 
     Set<StudentDto> studentsDto;
+    private LocalDateTime createdOn;
+
+    private LocalDateTime updatedOn;
+
+    private LocalDateTime deletedOn;
 
 }
