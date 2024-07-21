@@ -2,6 +2,7 @@ package com.webapp.fdbkrestful.entity;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,8 +30,10 @@ public class User {
     @Column
     protected String address;
     @Column
+    @NotBlank(message = "Name is mandatory")
     protected String name;
     @Column
+    @NotBlank(message = "Email is mandatory")
     protected String email;
     @Column
     protected String password;

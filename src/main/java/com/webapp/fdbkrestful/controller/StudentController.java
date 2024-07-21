@@ -5,9 +5,11 @@ import com.webapp.fdbkrestful.entity.Student;
 import com.webapp.fdbkrestful.entity.User;
 import com.webapp.fdbkrestful.repository.StudentRepository;
 import com.webapp.fdbkrestful.service.StudentService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @AllArgsConstructor
-@RestController
+@Controller
 @RequestMapping("api/student")
 public class StudentController {
     private final StudentRepository studentRepository;
@@ -34,7 +36,7 @@ public class StudentController {
     }*/
 
     @GetMapping()
-    public ResponseEntity<List<StudentDto>> getAllStudentes() {
+    public ResponseEntity<List<StudentDto>> getAllStudents() {
         List<StudentDto> fetchedStudents = studentService.getAllStudents();
         return ResponseEntity.ok(fetchedStudents);
     }
@@ -52,16 +54,16 @@ public class StudentController {
     }
     @GetMapping("/signup")
     public String showSignUpForm(Student student) {
-        return "sign-up";
+        return "add-student";
     }
     @PostMapping("/addstudent")
-    public String addStudent( Student student, BindingResult result, Model model) {
+    public String addStudent( @Valid Student  student, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "sign-up";
+            return "add-student";
         }
 
         studentRepository.save(student);
-        return "redirect:/index";
+        return "redirect:index";
     }
     @GetMapping("/index")
     public String showUserList(Model model) {

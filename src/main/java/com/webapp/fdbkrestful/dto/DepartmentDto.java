@@ -17,6 +17,7 @@ public class DepartmentDto {
     int id;
     String name;
     Set<SchoolClassDto> classes;
+    private String abbreviation;
     Status status;
     String description;
     private LocalDateTime createdOn;

@@ -27,6 +27,9 @@ public class Department {
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
 
     private Set<SchoolClass> classes;
+    @Column
+    private String abbreviation;
+    @Column
     private Status status;
     @Column
     private String description;
