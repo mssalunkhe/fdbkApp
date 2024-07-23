@@ -72,7 +72,7 @@ public class DepartmentController {
     }
     @GetMapping("/index")
     public String showUserList(Model model) {
-        //model.addAttribute("users", userRepository.findAll());
+        model.addAttribute("deartments", departmentRepository.findAll());
         return "index";
     }
 }
