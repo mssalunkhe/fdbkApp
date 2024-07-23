@@ -70,4 +70,9 @@ public class DepartmentController {
         DepartmentDto updatedDepartment = departmentService.updateDepartment(id, departmentDto);
         return ResponseEntity.ok(updatedDepartment);
     }
+    @GetMapping("/index")
+    public String showUserList(Model model) {
+        //model.addAttribute("users", userRepository.findAll());
+        return "index";
+    }
 }
